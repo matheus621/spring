@@ -1,6 +1,6 @@
 package com.souza.springcourse.domain.enums;
 
-public enum Rola {
+public enum Role {
 	ADMINISTRATOR,
 	AGENT
 }

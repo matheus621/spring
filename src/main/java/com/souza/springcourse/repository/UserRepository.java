@@ -1,4 +1,4 @@
-package repository;
+package com.souza.springcourse.repository;
 
 import java.util.Optional;
 
@@ -10,7 +10,7 @@ import com.souza.springcourse.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-
-	@Query("SELECT * FROM User WHERE = ?1 AND password = ?2")
+	
+	@Query("SELECT u FROM user u WHERE email = ?1 AND password = ?2")
 	public Optional<User> login(String email, String password);
 }

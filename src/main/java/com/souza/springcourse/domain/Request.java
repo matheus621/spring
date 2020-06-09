@@ -1,5 +1,6 @@
 package com.souza.springcourse.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.souza.springcourse.domain.enums.RequestState;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +29,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter @Setter
 @Entity(name = "request")
-public class Request {
+public class Request implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +49,7 @@ public class Request {
 	
 	@Column(length = 12, nullable = false)
 	@Enumerated(EnumType.STRING)
-	private RequestStage state;
+	private RequestState state;
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id", nullable = false)

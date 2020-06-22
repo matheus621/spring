@@ -25,7 +25,7 @@ import lombok.Setter;
 @Getter @Setter
 @Entity(name = "user")
 public class User implements Serializable{
-	
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
